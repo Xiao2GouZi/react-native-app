@@ -1,0 +1,131 @@
+//{
+//  "compilerOptions": {    //可以被忽略，这时编译器会使用默认值
+//    /* Basic Options */
+//    "target": "ES2015",                       /* 指定ECMAScript版本: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+//    "module": "es2015",                       /* 指定模块的代码生成: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+//    "lib": [
+//      "dom",
+//      "es6"
+//    ],                                        /* 指定在编译中包含库文件 */
+//    // "allowJs": true,                       //允许javascript文件被编译
+//    // "checkJs": true,                       /* . js文件中报告错误 */
+//    "jsx": "react-native",                    /* 指定JSX代码生成: 'preserve', 'react-native', or 'react'. */
+//    // "declaration": true,                   /* 生成相应的.d.ts文件 --- '.d.ts' file. */
+//    // "sourceMap": true,                     /* 生成相应的.map文件  --- '.map' file. */
+//    //"outFile": "./src",                     /* 输出单一文件. */
+//    "outDir": "./build",                      /* 指定目录输出。 */
+//    "rootDir": "./src",                       /* 指定输入文件的根目录。使用控制输出与——outDir目录结构。 */
+//    // "removeComments": true,                /* 移除输出文件中所有评论. */
+//    // "noEmit": true,                        /* 不生成输出文件. */
+//    //"importHelpers": true,                    /* 从 tslib 导入辅助工具函数（比如 __extends， __rest等） */
+//    // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
+//    // "isolatedModules": true,               /* 将每个文件作为单独的模块 (similar to 'ts.transpileModule'). */
+//
+//    /* Strict Type-Checking Options */
+//    //"strict": true,                           /* 启用所有严格类型检查选项。. */
+//    // "noImplicitAny": true,                 /* 在表达式和声明上有隐含的 any类型时报错。. */
+//    // "strictNullChecks": true,              /* 在严格的 null检查模式下， null和 undefined值不包含在任何类型里，只允许用它们自己和 any来赋值（有个例外， undefined可以赋值到 void） */
+//    // "strictFunctionTypes": true,           /* 禁用函数参数双向协变检查. */
+//    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+//    // "noImplicitThis": true,                /* 当 this表达式的值为 any类型的时候，生成一个错误。. */
+//    "alwaysStrict": true,                     /* 以严格模式解析并为每个源文件生成 "use strict"语句. */
+//
+//    /* Additional Checks */
+//    "noUnusedLocals": true,                   /* 若有未使用的局部变量则抛错 */
+//    "noUnusedParameters": true,               /* 若有未使用的参数则抛错。 */
+//    // "noImplicitReturns": true,             /* 不是函数的所有返回路径都有返回值时报错。 */
+//    "noFallthroughCasesInSwitch": true,       /* 报告switch语句的fallthrough错误。（即，不允许switch的case语句贯穿） */
+//
+//    /* Module Resolution Options */
+//    "moduleResolution": "node",               /* 决定如何处理模块, "Node"对Node.js/io.js, "Classic"（默认） */
+//    "baseUrl": "./src",                       /* 解析非相对模块名的基准目录。 */
+//    // "paths": {},                           /* 模块名到基于 baseUrl的路径映射的列表*/
+//    // "rootDirs": [],                        /* 根（root）文件夹列表，表示运行时组合工程结构的内容 */
+//    // "typeRoots": [],                       /* 包含的类型声明文件路径列表 */
+//    // "types": [],                           /* 要包含的类型声明文件名列表. */
+//    "allowSyntheticDefaultImports": true,     /* 允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查。 */
+//    //"esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+//    // "preserveSymlinks": true,              /* 不把符号链接解析为其真实路径；将符号链接文件视为真正的文件. */
+//
+//    /* Source Map Options */
+//    // "sourceRoot": "./",                    /* 指定TypeScript源文件的路径，以便调试器定位。当TypeScript文件的位置是在运行时指定时使用此标记。路径信息会被加到 sourceMap里 */
+//    // "mapRoot": "./",                       /* 为调试器指定指定sourcemap文件的路径，而不是使用生成时的路径。当 .map文件是在运行时指定的，并不同于 js文件的地址时使用这个标记。指定的路径会嵌入到 sourceMap里告诉调试器到哪里去找它们 */
+//    // "inlineSourceMap": true,               /* 生成单个sourcemaps文件，而不是将每sourcemaps生成不同的文件 */
+//    // "inlineSources": true,                 /* 将代码与sourcemaps生成到一个文件中，要求同时设置了 --inlineSourceMap或 --sourceMap属性。*/
+//
+//    /* Experimental Options */
+//    "experimentalDecorators": true,           /* 启用实验性的ES装饰器. */
+//    "emitDecoratorMetadata": true,            /* 给源码里的装饰器声明加上设计类型元数据*/
+//
+////    "paths": {
+////      "@/*": [
+////        "src/*"
+////      ]
+////    }
+//
+//  }
+
+  //指定一个包含相对或绝对文件路径的列表
+  //  "files": [
+  //
+  //  ],
+
+  //属性指定一个文件glob匹配模式列表。 支持的glob通配符有
+//  "include": [
+//    "src/**/*"
+//  ],
+//
+//  "exclude": [
+//    "js",
+//    "android",
+//    "ios",
+//    "node_modules",
+//    "react-dom",
+//    "index.js",
+//    "build"
+//  ]
+//}
+
+
+
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es6",
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "jsx": "react-native",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "outDir": "build",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "emitDecoratorMetadata": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "tslib" : ["bower_components/tslib/tslib.d.ts"]
+    }
+  },
+  "exclude": [
+    "js",
+    "android",
+    "ios",
+    "node_modules",
+    "react-dom",
+    "index.js",
+    "build"
+  ]
+}
+
+
+
+
