@@ -90,3 +90,15 @@ const dataArray = (array: any[]) => {
     })
 };
 
+let globalLastTapTime = 0;
+
+/**
+ *  解决重复点击
+ * */
+export const preventMoreTap = () => {
+    let globaTime = globalLastTapTime;
+    let time = new Date().getTime();
+    globalLastTapTime = time;
+    return Math.abs(time-globaTime) < 400 && globaTime != 0
+}
+

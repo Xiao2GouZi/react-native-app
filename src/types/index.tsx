@@ -14,7 +14,9 @@ export interface IConfig {
     host: string,
     requestTimeOut: number,
     isDev: boolean,
-    defaultImage: string
+    defaultImage: string,
+    isIOS: boolean,
+    isAllScreen: boolean
 }
 
 export interface IReduxAction {
