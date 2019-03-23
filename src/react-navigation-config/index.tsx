@@ -47,7 +47,7 @@ const tabBarOptionsAndroid = {
 
 
 let _defaultTabNavigationOptions: NavigationScreenConfig<NavigationBottomTabScreenOptions> = ({ navigation }) =>{
-    let {state: {key}} = navigation;
+    let {state: {key, index}} = navigation;
     return {
         tabBarIcon: function({focused} : { focused: boolean }) {
             let selectedTabBar = TabBarConfig.filter(item => item.screenName === key);
@@ -60,9 +60,10 @@ let _defaultTabNavigationOptions: NavigationScreenConfig<NavigationBottomTabScre
         },
         tabBarOnPress: function ({defaultHandler}) {
             defaultHandler()
-        }
+        },
+        tabBarVisible: !index
     }
-}
+};
 
 const drawConfig:BottomTabNavigatorConfig  = {
     tabBarOptions: Config.isIOS ? tabBarOptionsIOS : tabBarOptionsAndroid,
