@@ -8,7 +8,7 @@ export interface ToastProps {
     backgroundColor?: string,
     shadowColor?: string,
     textColor?: string,
-    delay?: string,
+    delay?: number,
     hideOnPress?: boolean;
     onShow?: () => void;
     onShown?: () => void;

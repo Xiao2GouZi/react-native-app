@@ -188,6 +188,13 @@ const searchBar = {
     fontSize: font.sizeBase,
     iconColor: '#bbb',
     fill: '#fff',
+};
+
+const navigation = {
+    backgroundColor: '#fff',
+    titleColor: '#000',
+    activeTintColor: '#FF8E3C',
+    inactiveTintColor: '#666'
 }
 
 //通用属性值
@@ -224,4 +231,5 @@ export default {
     button,
     input,
     searchBar,
+    navigation
 };
