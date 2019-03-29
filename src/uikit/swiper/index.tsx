@@ -8,9 +8,26 @@ import {
     TouchableOpacity
 } from 'react-native'
 import Swiper from 'react-native-swiper';
-import {SwiperProps} from '../types'
 import PixelRatio from '../screen-pixel'
 import Theme from '../theme'
+
+export interface SwiperProps {
+    autoPlay?: boolean,
+    dotStyle?: Object | Array<Object>,
+    activeDotStyle?: Object | Array<Object>,
+    paginationStyle?: Object | Array<Object>,
+    style?: Object | Array<Object>,
+    height?: number,
+    width?: number,
+    imageData?: Array<ImageData>,
+    onPress?: (e?: any) => void;
+    borderRadius?: number
+}
+
+interface ImageData {
+    url: string,
+    id: number | string
+}
 
 export default class AdSwiper extends React.PureComponent<SwiperProps, any> {
 

@@ -108,6 +108,7 @@
     "emitDecoratorMetadata": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": [
         "src/*"

@@ -8,8 +8,9 @@ import ScrollableTabView from './scrollview-tab-view'
 import NetWorkImg from './network-img'
 // import CustomNaviagtion from './custom-navigation'
 import MyTextInput from './input'
-import * as UiKitPropsTypes from './types'
+import * as UiKitTypes from './types'
 import NavigationAction from '../react-navigation-config/navigation-action'
+import IconEx from './icon-ex'
 
 
 export {
@@ -23,7 +24,8 @@ export {
     NetWorkImg,
     // CustomNaviagtion,
     MyTextInput,
-    UiKitPropsTypes,
-    NavigationAction
+    UiKitTypes,
+    NavigationAction,
+    IconEx
 
 }

@@ -3,7 +3,7 @@ import { DeviceEventEmitter} from 'react-native'
 import Toast from 'react-native-root-toast';
 
 import ReactNavigationConfig from './react-navigation-config'
-import {UiKitPropsTypes} from './uikit'
+import {UiKitTypes} from './uikit'
 
 
 export default class App extends React.PureComponent {
@@ -19,7 +19,7 @@ export default class App extends React.PureComponent {
     }
 
     showToast = ({ text, setting }) => {
-        let _setting = setting ? setting as UiKitPropsTypes.ToastProps : {};
+        let _setting = setting ? setting as UiKitTypes.ToastProps : {};
         let _position = Toast.positions.CENTER;
         if (_setting.position === 'TOP') {
             _position = Toast.positions.TOP;

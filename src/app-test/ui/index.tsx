@@ -1,16 +1,16 @@
 import * as React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import {NavigationAction} from '../../uikit'
+import { NavigationAction } from '../../uikit';
 
 export default class Me extends React.PureComponent<any, any> {
 
     static navigationOptions = {
-        title: 'Kits',
+        title: 'UI',
     };
 
     componentDidMount() {
         // NavigationAction.TabBarOnPress((param) => {
-        //     console.log(' ---- tab on press param kits', param)
+        //     console.log(' ---- tab on press param', param)
         // })
     }
 
@@ -18,8 +18,7 @@ export default class Me extends React.PureComponent<any, any> {
         return(
             <View>
                 <TouchableOpacity onPress={this.toDetail}>
-                    <Text>Kit的世界</Text>
-
+                    <Text>UI的世界</Text>
                 </TouchableOpacity>
             </View>
         )

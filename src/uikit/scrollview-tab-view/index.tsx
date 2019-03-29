@@ -5,8 +5,35 @@ import {
     View,
 } from 'react-native'
 import ScrollableTabView, {ScrollableTabBar, DefaultTabBar} from 'react-native-scrollable-tab-view';
-import {ScrollViewTabViewProps, ScrollViewTabViewTabBarType} from '../types'
 import Theme from '../theme'
+
+
+interface ScrollViewTabViewProps {
+    children?: any,
+    // renderTabBar?: () => void,
+    tabBarPosition?: 'top' | 'bottom' | 'overlayTop' | 'overlayBottom',   //位置
+    onChangeTab?: (e?: any) => void,
+    onScroll?: (e?: number) => void,
+    locked?: boolean,
+    initialPage?: number,
+    page?: number,
+    tabBarUnderlineStyle?: Object | Array<Object>,
+    tabBarBackgroundColor?: string,
+    tabBarActiveTextColor?: string,
+    tabBarInactiveTextColor?: string,
+    tabBarTextStyle?: Object | Array<Object>,
+    style?: Object | Array<Object>,
+    scrollWithoutAnimation?: boolean,
+    tabBarType?: ScrollViewTabViewTabBarType,
+    tabBarTypeCustom?: () => void    //自定义tabbar
+}
+
+enum ScrollViewTabViewTabBarType {
+    Default = 'Default',
+    ScrollTabBar = 'ScrollTabBar',
+    CustomScrollTabBar = 'CustomScrollTabBar'
+}
+
 
 
 export default class ScrollViewTabView extends React.PureComponent<ScrollViewTabViewProps, any> {

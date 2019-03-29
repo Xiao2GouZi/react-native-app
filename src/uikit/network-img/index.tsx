@@ -10,7 +10,19 @@
 import React from "react";
 import { Image, Platform } from "react-native";
 import { fromJS, is } from "immutable";
-import { NetWorkImage } from '../types'
+
+interface NetWorkImage {
+    source: string,
+    errorSrc?: string,
+    width?: number,
+    height?: number,
+    onError?: (e?: any) => void,
+    onLoad?: (e?: any) => void,
+    style?: Object | Array<Object>,
+    children?: any,
+}
+
+
 /**
  * @see http://stackoverflow.com/questions/5573096/detecting-webp-support
  */

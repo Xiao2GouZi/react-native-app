@@ -14,7 +14,10 @@ import {DeviceEventEmitter, Text, Image} from 'react-native'
 import {Theme} from '../uikit'
 import Config from '../config'
 
-import TabBarConfig from './config'
+import TabBarConfig from './tab-config'
+import TabBarConfigTest from './tab-config.test'
+
+let _TabBarConfig = Config.isAppTest ? TabBarConfigTest : TabBarConfig
 
 const tabBarOptionsIOS = {
     activeTintColor: Theme.navigation.activeTintColor,         //活动选项卡的标签和图标颜色
@@ -50,13 +53,13 @@ let _defaultTabNavigationOptions: NavigationScreenConfig<NavigationBottomTabScre
     let {state: {key, index}} = navigation;
     return {
         tabBarIcon: function({focused} : { focused: boolean }) {
-            let selectedTabBar = TabBarConfig.filter(item => item.screenName === key);
+            let selectedTabBar = _TabBarConfig.filter(item => item.screenName === key);
             let imageSource = focused ? selectedTabBar[0].activeIcon : selectedTabBar[0].icon
             return <Image source={imageSource}/>
         },
         tabBarLabel: function({tintColor}: {tintColor: string}){
-            let selectedTabBar = TabBarConfig.filter(item => item.screenName === key);
-            return <Text style={{color: tintColor}}>{selectedTabBar[0].title}</Text>
+            let selectedTabBar = _TabBarConfig.filter(item => item.screenName === key);
+            return <Text style={{color: tintColor, textAlign: 'center'}}>{selectedTabBar[0].title}</Text>
         },
         tabBarOnPress: function ({defaultHandler}) {
             defaultHandler()
@@ -116,7 +119,7 @@ const StackConfig:StackNavigatorConfig = {
 
 function routeConfigMap():NavigationRouteConfigMap {
     let tabBarRoutes: any = {};
-    TabBarConfig.filter(item => {
+    _TabBarConfig.filter(item => {
         tabBarRoutes[item.screenName] = _createStackNavigator(item.routeConfigMap, StackConfig)
     });
     return tabBarRoutes
@@ -152,7 +155,6 @@ export default class Index extends React.PureComponent {
 
 
     push = ({route, params}) => {
-        console.log('----- pusn navigate param', this.navigation);
         this.navigation.dispatch(StackActions.push({routeName: route, params}))
     };
 

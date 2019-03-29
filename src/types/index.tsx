@@ -10,14 +10,7 @@ export interface IResponse {
     message: string;
 }
 
-export interface IConfig {
-    host: string,
-    requestTimeOut: number,
-    isDev: boolean,
-    defaultImage: string,
-    isIOS: boolean,
-    isAllScreen: boolean
-}
+
 
 export interface IReduxAction {
     type: string,

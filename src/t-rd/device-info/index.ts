@@ -99,7 +99,7 @@ export const getFreeDiskStorage = () => {
 }
 
 /**
- *  获取设备的当钱IP地址,  promise对象
+ *  获取设备的当前IP地址,  promise对象
  * */
 export const getIPAddress = () => {
     return DeviceInfo.getIPAddress()
@@ -133,12 +133,6 @@ export const getManufacturer = () => {
     return DeviceInfo.getManufacturer()
 }
 
-/**
- *  获取设备系统名称
- * */
-export const systemVersion = () => {
-    return DeviceInfo.getSystemVersion()
-}
 
 /**
  *  获取APP的版本号
@@ -186,7 +180,8 @@ export const isEmulator = () => {
  *  判断是否设置指纹
  * */
 export const isPinOrFingerprintSet = (success: (isPinOrFingerprintSet: boolean) => void) => {
-    DeviceInfo.isPinOrFingerprintSet(isPinOrFingerprintSet => {
+    let response = DeviceInfo.isPinOrFingerprintSet()
+    response(isPinOrFingerprintSet => {
         success(isPinOrFingerprintSet)
     })
 }
