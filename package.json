@@ -10,7 +10,8 @@
     "sync": "rm -rf build/* && rsync -rv --delete --exclude=*.ts* ./src/* ./build/",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios --simulator \"iPhone X\"",
     "android": "node node_modules/react-native/local-cli/cli.js run-android && ./node_modules/.bin/tsc -w",
-    "android-release": "cd android && ./gradlew assembleRelease"
+    "android-release": "cd android && ./gradlew assembleRelease",
+    "iconfont": "nodemon build/font/index.js"
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
@@ -39,6 +40,7 @@
     "@types/react-redux": "6.0.11",
     "@types/redux-actions": "2.3.1",
     "babel-jest": "23.6.0",
+    "express": "^4.16.4",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.48.5",
     "react-native-typescript-transformer": "^1.2.10",
