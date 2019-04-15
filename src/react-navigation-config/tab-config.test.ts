@@ -5,10 +5,10 @@ import KitsScreen from '../app-test/kits';
 import UIScreen from '../app-test/ui'
 
 import DeviceInfo from '../app-test/device-info'
+import Toast from '../app-test/toast'
 
 interface ITabBarConfig {
-    icon: any,
-    activeIcon: any,
+    icon: string,
     screenName: string,
     routeConfigMap: NavigationRouteConfigMap,
     title: string
@@ -22,22 +22,18 @@ const KitRouteConfigMap:NavigationRouteConfigMap = {
 
 const UIRouteConfigMap:NavigationRouteConfigMap = {
     UIScreen,
+    Toast
 };
 
 
 
-
-
-
 const tabConfig: ITabBarConfig[] = [{
-    icon: require('../assets/images/text.png'),
-    activeIcon: require('../assets/images/text_active.png'),
+    icon: "geren",
     screenName: 'KitStack',
     routeConfigMap: KitRouteConfigMap,
     title: 'Kits'
 }, {
-    icon: require('../assets/images/component.png'),
-    activeIcon: require('../assets/images/component_active.png'),
+    icon: 'geren',
     screenName: 'UIStack',
     routeConfigMap: UIRouteConfigMap,
     title: 'UI'

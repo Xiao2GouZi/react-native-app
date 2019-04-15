@@ -7,8 +7,7 @@ import DetailScreen from '../app/detail'
 
 
 interface ITabBarConfig {
-    icon: any,
-    activeIcon: any,
+    icon: string,
     screenName: string,
     routeConfigMap: NavigationRouteConfigMap,
     title: string
@@ -28,15 +27,13 @@ const MeRouteConfigMap:NavigationRouteConfigMap = {
 
 
 const tabConfig: ITabBarConfig[] = [{
-    icon: require('../assets/images/home.png'),
-    activeIcon: require('../assets/images/home_active.png'),
+    icon: "shouye",
     screenName: 'HomeStack',
     routeConfigMap: HomeRouteConfigMap,
     title: '首页'
 },
   {
-    icon: require('../assets/images/me.png'),
-    activeIcon: require('../assets/images/me_active.png'),
+    icon: "geren",
     screenName: 'MeStack',
     routeConfigMap: MeRouteConfigMap,
     title: '我的'

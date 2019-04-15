@@ -9,9 +9,9 @@ import { createStackNavigator, createAppContainer,  createBottomTabNavigator,
     BottomTabNavigatorConfig, NavigationScreenConfig, NavigationBottomTabScreenOptions, NavigationContainerComponent
 } from "react-navigation";
 import * as React from 'react'
-import {DeviceEventEmitter, Text, Image} from 'react-native'
+import {DeviceEventEmitter, Text} from 'react-native'
 
-import {Theme} from '../uikit'
+import {Theme, IconEx} from '../uikit'
 import Config from '../config'
 
 import TabBarConfig from './tab-config'
@@ -52,10 +52,9 @@ const tabBarOptionsAndroid = {
 let _defaultTabNavigationOptions: NavigationScreenConfig<NavigationBottomTabScreenOptions> = ({ navigation }) =>{
     let {state: {key, index}} = navigation;
     return {
-        tabBarIcon: function({focused} : { focused: boolean }) {
+        tabBarIcon: function({tintColor } : { focused: boolean, tintColor: string  }) {
             let selectedTabBar = _TabBarConfig.filter(item => item.screenName === key);
-            let imageSource = focused ? selectedTabBar[0].activeIcon : selectedTabBar[0].icon
-            return <Image source={imageSource}/>
+            return <IconEx name={selectedTabBar[0].icon} color={tintColor} size={25}/>
         },
         tabBarLabel: function({tintColor}: {tintColor: string}){
             let selectedTabBar = _TabBarConfig.filter(item => item.screenName === key);

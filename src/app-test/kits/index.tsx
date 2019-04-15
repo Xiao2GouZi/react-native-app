@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View, Text, TouchableOpacity, FlatList, StyleSheet, ViewStyle } from 'react-native'
-import {NavigationAction, Theme, UiKitTypes, IconEx} from '../../uikit'
+import {NavigationAction, Theme, UiKitTypes} from '../../uikit'
 import DataList from './data'
 
 
@@ -10,14 +10,10 @@ export default class Me extends React.PureComponent<any, any> {
         title: 'Kits',
     };
 
-    componentDidMount() {
-        console.log('------  data list', DataList)
-    }
 
     render(){
         return(
             <View style={styles.contain}>
-                <IconEx name='dianpu' size={40} color='#226688'/>
                 <FlatList data={DataList}
                           renderItem={this.renderItem}/>
             </View>
@@ -26,7 +22,9 @@ export default class Me extends React.PureComponent<any, any> {
 
     renderItem = ({item}) => {
         return(
-            <TouchableOpacity style={styles.listItem} onPress={() => this.toDetail(item)}>
+            <TouchableOpacity style={styles.listItem}
+                              key={item.screen}
+                              onPress={() => this.toDetail(item)}>
                 <Text>{item.name}</Text>
             </TouchableOpacity>
         )

@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-import { NavigationAction } from '../../uikit';
+import { View, Text, TouchableOpacity, StyleSheet, ViewStyle, FlatList } from 'react-native'
+import { NavigationAction, Theme } from '../../uikit';
+import DataList from './data';
 
 export default class Me extends React.PureComponent<any, any> {
 
@@ -8,25 +9,46 @@ export default class Me extends React.PureComponent<any, any> {
         title: 'UI',
     };
 
-    componentDidMount() {
-        // NavigationAction.TabBarOnPress((param) => {
-        //     console.log(' ---- tab on press param', param)
-        // })
-    }
 
     render(){
         return(
-            <View>
-                <TouchableOpacity onPress={this.toDetail}>
-                    <Text>UI的世界</Text>
-                </TouchableOpacity>
+            <View style={styles.contain}>
+                <FlatList data={DataList}
+                          renderItem={this.renderItem}/>
             </View>
         )
     }
 
-    toDetail = () => {
-        NavigationAction.NavigationPush('DetailScreen', {name: '小明'})
+    renderItem = ({item}) => {
+        return(
+            <TouchableOpacity style={styles.listItem}
+                              key={item.screen}
+                              onPress={() => this.toDetail(item)}>
+                <Text>{item.name}</Text>
+            </TouchableOpacity>
+        )
+    };
 
+
+    toDetail = ({screen, name}: {screen: string, name: string}) => {
+        NavigationAction.NavigationPush(screen, {name})
     }
 
 }
+
+
+const styles = StyleSheet.create({
+    contain:{
+        flex: 1,
+    } as ViewStyle,
+
+    listItem: {
+        backgroundColor: '#fff',
+        height: 44,
+        borderBottomColor: Theme.border.color,
+        borderBottomWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    } as ViewStyle
+})

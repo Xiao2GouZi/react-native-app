@@ -19,6 +19,7 @@ export default class App extends React.PureComponent {
     }
 
     showToast = ({ text, setting }) => {
+        console.log('--- toast setting', setting);
         let _setting = setting ? setting as UiKitTypes.ToastProps : {};
         let _position = Toast.positions.CENTER;
         if (_setting.position === 'TOP') {
