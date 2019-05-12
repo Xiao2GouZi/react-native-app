@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {TouchableOpacity} from 'react-native'
-import IconSet from '../../font/icon-set'
+import IconSet from '../../assets/iconfont/icon-set'
 
 interface IProps {
     name: string,

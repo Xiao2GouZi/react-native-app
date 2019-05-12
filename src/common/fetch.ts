@@ -2,7 +2,6 @@
  * 网络层封装
  */
 
-import {IAsyncResult, IResponse} from '../types';
 import Config from '../config';
 import {urlQuery} from './utils'
 
@@ -13,8 +12,34 @@ interface IRequestCommonParam {
     body?: object
 }
 
+interface IResponse {
+    data: any;
+    status: number;
+    message: string;
+    code: string
+}
 
-async function Request<T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> {
+
+interface IAsyncResult<T> {
+    res: T;
+    code: string      //   超时,网络错误是-1
+    err: any;
+}
+
+async function common<T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> {
+    return await Promise.race([requestTimeOut(), request(param)]);
+}
+
+
+function  requestTimeOut<T = any> (): Promise<IAsyncResult<T>> {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({res: {} as T, code: '-1', err: '网络请求失败,请检查网络'})
+        }, Config.requestTimeOut * 1000)
+    })
+};
+
+async function request<T = any> (param: IRequestCommonParam): Promise<IAsyncResult<T>> {
     const headers: HeadersInit = {
         'Content-Type': 'application/json; charset=utf-8',
         'credentials': 'omit'
@@ -24,30 +49,26 @@ async function Request<T = any>(param: IRequestCommonParam): Promise<IAsyncResul
         headers,
         ...param.init,
     };
-    // 添加网络超时机制
-    const timeoutId = setTimeout(() => {
-        return { res: null, err: new Error('timeout') };
-    }, Config.requestTimeOut * 1000);
-
     try {
         const response = await fetch(param.url, request);
-        timeoutId && clearTimeout(timeoutId);
         const responseData: IResponse = await response.json();
-        const { message, data, status} = responseData;
+        console.log(' ---- data response', responseData);
+        const { message, data, code} = responseData;
         const ret = {
-            res: status ? data : {} as T,
-            err: status !== 1 ? message : null,
+            res: data as T,
+            code: code ? code : '0',
+            err: message,
         };
         return ret;
     } catch (err) {
-        timeoutId && clearTimeout(timeoutId);
-        const res: {res: any, err: string} = { res: {}, err: '网络请求失败,请检查网络'};
+        const res = { res: {} as T, code: '-1', err: '网络请求失败,请检查网络'};
         return res;
     }
 }
 
+
 const Post = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
-    return Request<T>({
+    return common<T>({
         url: param.url,
         init: param.init ? param.init : {
             method: 'POST',
@@ -57,7 +78,7 @@ const Post = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => 
 };
 
 const Delete = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
-    return Request<T>({
+    return common<T>({
         url: param.url,
         init: param.init ? param.init : {
             method: 'DELETE',
@@ -70,7 +91,7 @@ const Delete = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> =
  * Put
  */
 const Put = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
-    return Request<T>({
+    return common<T>({
         url: param.url,
         init: param.init ? param.init : {
             method: 'PUT',
@@ -84,7 +105,7 @@ const Put = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
  */
 const Get = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
     const url = param.body ? `${param.url}${urlQuery(param.body)}` : param.url;
-    return Request<T>({
+    return common<T>({
         url,
         init: param.init ? param.init : {
             method: 'GET'
@@ -94,7 +115,7 @@ const Get = <T = any>(param: IRequestCommonParam): Promise<IAsyncResult<T>> => {
 
 
 export default {
-    Request,
+    common,
     Post,
     Get,
     Delete,

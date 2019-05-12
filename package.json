@@ -11,9 +11,12 @@
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios --simulator \"iPhone X\"",
     "android": "node node_modules/react-native/local-cli/cli.js run-android && ./node_modules/.bin/tsc -w",
     "android-release": "cd android && ./gradlew assembleRelease",
-    "iconfont": "nodemon build/font/index.js"
+    "iconfont": "nodemon iconfont/index.js",
+    "mock": "nodemon mock/index.js",
+    "iconfont-map": " cd src/assets/iconfont && bash iconfont_mapper.sh iconfont.svg"
   },
   "dependencies": {
+    "@types/fetch-mock": "^7.2.3",
     "immutable": "^4.0.0-rc.12",
     "moment": "^2.23.0",
     "react": "16.6.3",
@@ -43,6 +46,7 @@
     "express": "^4.16.4",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.48.5",
+    "mockjs": "^1.0.1-beta3",
     "react-native-typescript-transformer": "^1.2.10",
     "react-test-renderer": "16.6.3",
     "ts-jest": "^23.10.5",
