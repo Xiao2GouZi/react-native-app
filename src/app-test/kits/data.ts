@@ -4,10 +4,15 @@ interface IData {
     screen: string
 }
 
-
 const dataList: IData[] = [{
     name: 'device info',
     screen: 'DeviceInfo'
+}, {
+    name: 'iconfont',
+    screen: 'IconFont'
+}, {
+    name: 'mock',
+    screen: 'Mock'
 }]
 
 

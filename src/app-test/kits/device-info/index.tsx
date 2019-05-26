@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 import { ScrollView,View, Text, StyleSheet, ViewStyle } from 'react-native'
-import {DeviceInfo} from '../../t-rd'
-import { Theme, UiKitTypes } from '../../uikit';
+import {DeviceInfo} from '../../../t-rd'
+import { Theme, UiKitTypes } from '../../../uikit';
 
 interface IProps {
 

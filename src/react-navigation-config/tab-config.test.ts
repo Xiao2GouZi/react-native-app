@@ -4,8 +4,13 @@ import { NavigationRouteConfigMap } from "react-navigation";
 import KitsScreen from '../app-test/kits';
 import UIScreen from '../app-test/ui'
 
-import DeviceInfo from '../app-test/device-info'
-import Toast from '../app-test/toast'
+import DeviceInfo from '../app-test/kits/device-info'
+import IconFont from '../app-test/kits/iconfont';
+import Mock from '../app-test/kits/mock'
+
+
+
+import Toast from '../app-test/ui/toast'
 
 interface ITabBarConfig {
     icon: string,
@@ -17,7 +22,9 @@ interface ITabBarConfig {
 
 const KitRouteConfigMap:NavigationRouteConfigMap = {
     KitsScreen,
-    DeviceInfo
+    DeviceInfo,
+    IconFont,
+    Mock
 };
 
 const UIRouteConfigMap:NavigationRouteConfigMap = {

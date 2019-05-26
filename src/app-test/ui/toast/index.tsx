@@ -1,6 +1,6 @@
 import * as React from  'react'
 import { View, Text, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
-import { UiKitTypes , Theme, Toast} from '../../uikit';
+import { UiKitTypes , Theme, Toast} from '../../../uikit';
 
 
 

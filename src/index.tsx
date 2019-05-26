@@ -5,10 +5,13 @@ import Toast from 'react-native-root-toast';
 import ReactNavigationConfig from './react-navigation-config'
 import {UiKitTypes} from './uikit'
 
+import './global'
+
 
 export default class App extends React.PureComponent {
 
     componentDidMount() {
+        console.log('global', global)
         DeviceEventEmitter.addListener('app:toast', this.showToast)
     }
 
